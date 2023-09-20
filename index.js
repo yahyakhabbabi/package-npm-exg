@@ -1,11 +1,15 @@
+#!/usr/bin/env node
+
 const express = require('express');
-const app = require('app');
+const app = express(); // Corrected 'app' to 'express'
 const PORT = process.env.PORT || 3000;
-const bodyparser = require('body-parser');
-//Middelware
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended:true}));
-app.set('view engine','ejs');
-app.listen(PORT,()=>{
-    console.log('listening in port',PORT);
-})
+const bodyParser = require('body-parser'); // Corrected 'bodyparser' to 'bodyParser'
+
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+app.listen(PORT, () => {
+    console.log('Listening on port', PORT);
+});
